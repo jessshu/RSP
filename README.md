@@ -9,7 +9,7 @@
 - DFS
 
 
-**Conceptual implementation: **
+**Conceptual implementation:**
 - tries
 - vector amortised time
 - bit manipulation
