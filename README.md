@@ -1,6 +1,6 @@
-**RSP**
+#RSP
 
-Implement:
+**Implement:**
 - linked list
 - binary tree
 - graph using adjecency list
@@ -9,7 +9,7 @@ Implement:
 - DFS
 
 
-Conceptual implementation: 
+**Conceptual implementation: **
 - tries
 - vector amortised time
 - bit manipulation
