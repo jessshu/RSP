@@ -1,48 +1,54 @@
-// time complexity: O(V+E) where v is numVertices and E is numEdges 
-
 #include <iostream>
-#include <map>
 
 class Graph {
-    protected:
-        std::map<int,bool> discovered; 
-        std::map<int,std::vector<int> > graph; 
+    private:
+        std::vector<bool> visited; 
+        std::vector<std::vector<int> > graph;
+
+        int size = 10; 
 
     public:
+        Graph() {
+            visited.resize(size,false); 
+            graph.resize(size); 
+        }
         void addEdge(int src, int dest) {
-            graph[src].push_back(dest);
+            graph[src].push_back(dest); 
             graph[dest].push_back(src);
         };
 
-
         void DFS(int src) {
-            discovered[src] = true; 
+            visited[src] = true; 
 
-            std::cout << src << " "; 
+            std::cout << src << " ";
 
-            for (auto next : graph[src]) {
-                if (discovered[next] == false) {
-                    DFS(next); 
+            for (auto neighbour : graph[src]) {
+                if (!visited[neighbour]) {
+                    std::cout << "go back!" << std::endl;
+                    DFS(neighbour);
                 }
             }
-
         }
-
-
 };
 
 int main() {
-    Graph g;
+/* Graph visualisation (1 as src) 
+    6 - 1* 
+       / \ 
+  3 - 2   7
+   \  |
+     4 — 5
 
-    g.addEdge(0,1);
-    g.addEdge(1,6);
-    g.addEdge(1,2);
-    g.addEdge(2,3);
-    g.addEdge(2,5);
-    g.addEdge(3,4);
-    g.addEdge(4,5);
+*/
+Graph graph; 
 
-    g.DFS(0); 
+graph.addEdge(6,1);
+graph.addEdge(1,7);
+graph.addEdge(1,2);
+graph.addEdge(2,3);
+graph.addEdge(2,4);
+graph.addEdge(4,5);
 
-    return 0; 
+graph.DFS(1); 
+
 }

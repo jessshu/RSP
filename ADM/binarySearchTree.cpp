@@ -1,24 +1,4 @@
 #include <iostream>
-// UNDERSTAND AND TAKE NOTES ON TIME COMPLEXITY,
-// also try to implement this in an actual problem rather than abstract, would let you understand it better 
-
-//define node struct 
-// struct Node {
-//     int data; 
-//     Node* left; 
-//     Node* right; 
-
-//    // doesnt have to have a constructor but is helpful for initialising n cleaner code 
-//     Node(int value): data(value), left(nullptr), right(nullptr) {}
-// };
-
-// Node* root = nullptr; 
-
-// Node* createNode(int val) {
-//     Node* new_node = new Node(val); 
-
-//     return new_node; 
-// };
 
 struct Node {
     int data;
@@ -29,7 +9,7 @@ struct Node {
 Node * newNode(int val) {
     Node *new_node = new Node; 
     new_node->data = val; 
-    new_node->left = nullptr; 
+    new_node->left = new_node->right = nullptr; 
 
     return new_node; 
 };
