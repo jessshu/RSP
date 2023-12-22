@@ -1,30 +1,5 @@
 #include <iostream>
 
-// class Graph {
-
-//   private:
-//     int numVertices;
-//     std::list<int> *lists; // array containing adjacency lists 
-
-//  public:
-//   Graph(int vertices);
-
-//   void addEdge(std::vector<int> adj[], int s, int d){
-//     adj[s].push_back(d); 
-//     adj[d].push_back(s); 
-//   };
-
-//   void printGraph(std::vector<int> adj[], int vertices) {
-//     for (int i = 1; i < vertices; i++) {
-//         std::cout << "\n Vertex " << i << ":";
-//         for (auto x : adj[i]) {
-//             std::cout << "->" << x << std::endl; 
-//         }
-//     }
-//   }
-
-// };
-
 using namespace std;
 
 // Add edge

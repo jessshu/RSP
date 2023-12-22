@@ -1,7 +1,4 @@
 #include <iostream>
-// time complexity: 
-
-// do i understand it 
 
 // define node struct 
 struct Node {

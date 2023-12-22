@@ -9,7 +9,7 @@ struct Node {
 Node * newNode(int val) {
     Node *new_node = new Node; 
     new_node->data = val; 
-    new_node->left = new_node->right = nullptr; 
+    new_node->left = nullptr; 
 
     return new_node; 
 };
@@ -64,9 +64,9 @@ int main()
     insert(root, 4);
     insert(root, 5);
 
-    //std::cout << contains(root, 3) << "\t" << contains(root, 10) << "\t" << contains(root, 5);
+    std::cout << contains(root, 3) << "\t" << contains(root, 10) << "\t" << contains(root, 5);
 
-    displayTree(root); 
-    
+    //displayTree(root); 
+
     return 0;
 }

@@ -10,66 +10,64 @@
     c. mark undiscovered neighbours as discovered and add to queue*/
 
 #include <iostream>
-#include <vector>
 
 class Graph {
-    protected:
-        std::vector<std::vector<int> > graph; 
+    private: 
+        std::vector<bool> visited; 
+        std::vector<bool> processed;
+        std::vector<std::vector<int> > graph;
 
-    public:
-        Graph(int numNodes){
-            int V = numNodes;
-            graph.resize(V); 
-        }; 
+        int size = 10;
 
-        void addEdge(int x, int y) { // assume undirected graph
-            // store as neighbours in graph 
-            graph[x].push_back(y); 
-            graph[y].push_back(x); 
+    public: 
+        Graph() {
+            visited.resize(size,false);
+            graph.resize(size); 
         }
+        void addEdge(int src, int dest) {
+            graph[src].push_back(dest);
+            graph[dest].push_back(src);
+        };
 
         void BFS(int src) {
-            int curr_node = src; 
-
             std::vector<int> queue; 
-            std::vector<bool> discovered(graph.size(), false); 
-            std::vector<bool> processed(graph.size()); 
 
             queue.push_back(src); 
-            discovered[src] = true; 
+            visited[src] = true; 
 
-            while(!queue.empty()) {
-                // dequeue and print
-                curr_node = queue.front(); 
-
-                std::cout<< curr_node << " "; 
+            while (!queue.empty()) {
+                int curr = queue.front();
+                std::cout << curr << " ";
                 queue.erase(queue.begin()); 
-                
 
-                for (int i = 0; i < graph[curr_node].size(); i++) {
-                    int nbr = graph[curr_node][i]; 
-
-                    if (discovered[nbr] == false) {
-                        discovered[nbr] = true; 
-                        queue.push_back(nbr);
+                for (auto neighbour : graph[src]) {
+                    if (!visited[neighbour]) {
+                        queue.push_back(neighbour);
+                        visited[neighbour] = true; 
                     }
 
-                    
                 }
             }
+
+            std::cout << std::endl; 
         }
+
 };
 
 int main() {
-    Graph g(6);
+    Graph g; 
 
-    g.addEdge(0,1);
-    g.addEdge(0,2);
-    g.addEdge(2,3);
+    g.addEdge(1,6);
+    g.addEdge(1,7); 
+    g.addEdge(1,2);
     g.addEdge(2,4);
-    g.addEdge(1,5);
+    g.addEdge(2,3);
+    g.addEdge(3,4);
+    g.addEdge(4,5);
 
-    g.BFS(0);
-
+    g.BFS(1); 
 }
+
+
+
 

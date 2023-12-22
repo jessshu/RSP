@@ -1,8 +1,7 @@
 //divide and conquer approach!!11!1!
 // splits unsorted array into smaller parts then merge the "sorted" arrays into a complete sorted array 
 // has nlogn time complexity 
-// ^^ need to understand the time complexity of this later, ask chatGPT or smth idk 
-// 
+
 
 #include <iostream>
 
